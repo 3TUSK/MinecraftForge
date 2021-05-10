@@ -13,7 +13,7 @@
     @Nullable
     private BlockState field_195045_e;
     private boolean field_222816_g;
-+   private CompoundNBT customTileData;
++   @Deprecated private CompoundNBT customTileData; // TODO (1.17): Remove in favor of Capability
  
     public TileEntity(TileEntityType<?> p_i48289_1_) {
 +      super(TileEntity.class);
@@ -63,12 +63,14 @@
     }
  
     public void func_145829_t() {
-@@ -173,6 +_,13 @@
+@@ -173,6 +_,15 @@
  
     public TileEntityType<?> func_200662_C() {
        return this.field_200663_e;
 +   }
 +
++   /** @deprecated Use Capability system for attaching data to other tile entities.*/
++   @Deprecated // TODO (1.17): Remove in favor of capability
 +   @Override
 +   public CompoundNBT getTileData() {
 +      if (this.customTileData == null)
